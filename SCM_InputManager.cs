@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
@@ -17,7 +17,7 @@ public class SCM_InputManager : MonoBehaviour
     public controlOptions controller = controlOptions.CONTROLLER;
     List<controllerButtons> lastClicks = new List<controllerButtons>();
 
-    public bool checkingInput = false;
+    public bool inputInactive = false;
     #region controller
     /// <summary>
     /// Buttons on the controller
@@ -184,7 +184,7 @@ public class SCM_InputManager : MonoBehaviour
     // Main buttons
     public bool GetPrimaryAction_A()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -197,7 +197,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetPrimaryAction_B()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -211,7 +211,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetPrimaryAction_X()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -224,7 +224,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetPrimaryAction_Y()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -240,7 +240,7 @@ public class SCM_InputManager : MonoBehaviour
     // Triggers
     public bool GetSecondaryAction_A()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -253,7 +253,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetSecondaryAction_B()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -267,7 +267,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetSecondaryAction_X()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -280,7 +280,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetSecondaryAction_Y()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -296,7 +296,7 @@ public class SCM_InputManager : MonoBehaviour
     // Tertiary actions(D-pad)
     public bool GetTertiaryAction_A()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -309,7 +309,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetTertiaryAction_B()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -323,7 +323,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetTertiaryAction_X()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -336,7 +336,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetTertiaryAction_Y()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -353,7 +353,7 @@ public class SCM_InputManager : MonoBehaviour
     // Other Buttons
     public bool GetPauseAction()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -367,7 +367,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetSelectAction()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -381,13 +381,13 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetPrimaryStick()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         return getBtnStateClicked(PrimaryStick_Click);
     }
     public bool GetSecondaryStick()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         return getBtnStateClicked(SecondaryStick_Click);
     }
@@ -398,7 +398,7 @@ public class SCM_InputManager : MonoBehaviour
     // Main buttons
     public bool GetPrimaryAction_A_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -411,7 +411,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetPrimaryAction_B_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -425,7 +425,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetPrimaryAction_X_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -438,7 +438,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetPrimaryAction_Y_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -454,7 +454,7 @@ public class SCM_InputManager : MonoBehaviour
     // Triggers
     public bool GetSecondaryAction_A_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -467,7 +467,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetSecondaryAction_B_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -481,7 +481,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetSecondaryAction_X_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -494,7 +494,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetSecondaryAction_Y_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -510,7 +510,7 @@ public class SCM_InputManager : MonoBehaviour
     // Tertiary actions(D-pad)
     public bool GetTertiaryAction_A_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -523,7 +523,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetTertiaryAction_B_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -537,7 +537,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetTertiaryAction_X_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -550,7 +550,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetTertiaryAction_Y_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -567,7 +567,7 @@ public class SCM_InputManager : MonoBehaviour
     // Other Buttons
     public bool GetPauseAction_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         switch (controller)
         {
@@ -581,7 +581,7 @@ public class SCM_InputManager : MonoBehaviour
     }
     public bool GetSelectAction_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
         switch (controller)
         {
             case controlOptions.CONTROLLER:
@@ -599,13 +599,13 @@ public class SCM_InputManager : MonoBehaviour
     /// <returns></returns>
     public bool GetPrimaryStick_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         return getBtnStatePressed(PrimaryStick_Click);
     }
     public bool GetSecondaryStick_Continuous()
     {
-        if (checkingInput) return false;
+        if (inputInactive) return false;
 
         return getBtnStatePressed(SecondaryStick_Click);
     }
@@ -874,7 +874,7 @@ public class SCM_InputManager : MonoBehaviour
     /// </summary>
     private void CheckKeyboardStroke()
     {
-        if (checkingInput) return;
+        if (inputInactive) return;
 
         if (Input.GetKeyDown(KeyCode.A)
                         || Input.GetKeyDown(KeyCode.S)
@@ -896,7 +896,7 @@ public class SCM_InputManager : MonoBehaviour
     /// </summary>
     private void CheckControllerStroke()
     {
-        if (checkingInput) return;
+        if (inputInactive) return;
 
         if (getBtnStateClicked(PrimaryAction_A) || getBtnStateClicked(PrimaryAction_B) ||
             getBtnStateClicked(PrimaryAction_X) || getBtnStateClicked(PrimaryAction_Y) ||
